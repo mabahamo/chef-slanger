@@ -26,20 +26,7 @@ user 'slanger' do
   manage_home true
 end
 
-# Custom Ruby and gems for our user
-node['rvm']['user_installs'] = [
-  { 'user'            => 'slanger',
-    'home'            => node[:slanger][:home_dir],
-    'upgrade'         => 'head',
-    'default_ruby'    => 'ruby-1.9.3-p194',
-    'rvm_gem_options' => '',
-    'global_gems'     => [
-      { 'name'    => 'slanger'},
-    ]
-  },
-]
-
-include_recipe 'rvm::user'
+gem 'slanger'
 
 # An upstart job for running slanger
 # Restart doesn't work properly so we stop the service and the service
