@@ -26,7 +26,9 @@ user 'slanger' do
   manage_home true
 end
 
-gem 'slanger'
+gem_package "slanger" do
+  action :install # see actions section below
+end
 
 # An upstart job for running slanger
 # Restart doesn't work properly so we stop the service and the service
