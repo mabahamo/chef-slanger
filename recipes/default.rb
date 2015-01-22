@@ -3,6 +3,7 @@
 # Recipe:: default
 #
 # Copyright 2012, Rafael Durán Castañeda
+# Copyright 2015, Manuel Bahamóndez Honores
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -31,11 +32,13 @@ include_recipe "rbenv::ruby_build"
 
 rbenv_ruby "2.1.5"
 
-gem_package "slanger" do
-  action :install # see actions section below
+rbenv_gem "bundler" do
+  ruby_version "2.1.5"
 end
 
-
+rbenv_gem "slanger" do
+  ruby_version "2.1.5"
+end
 
 # An upstart job for running slanger
 # Restart doesn't work properly so we stop the service and the service
