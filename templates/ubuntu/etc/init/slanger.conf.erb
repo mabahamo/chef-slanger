@@ -3,6 +3,7 @@
 # Template:: etc/init/slanger.conf.erb
 #
 # Copyright 2012, Rafael Durán Castañeda
+# Copyright 2015, Manuel Bahamóndez Honores
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +18,7 @@
 # limitations under the License.
 #
 
-author "Rafael Durán Castañeda <rafadurancastaneda@gmail.com>"
+author "Manuel Bahamóndez Honores <manuel@bahamondez.com>"
 description "Slanger Pusher service."
 
 <% if node[:slanger][:start_on].nil? -%>
@@ -37,4 +38,5 @@ respawn
 exec su -s /bin/bash \
         -c 'slanger -k <%= node[:slanger][:app_key] %> \
                     -s <%= node[:slanger][:secret] %> \
+                    -r <%= node[:slanger][:redis] %> \
                     <%= @verbose %>' - slanger

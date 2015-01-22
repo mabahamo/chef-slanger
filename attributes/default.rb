@@ -3,6 +3,7 @@
 # Attributes:: default
 #
 # Copyright 2012, Rafael Durán Castañeda
+# Copyright 2015, Manuel Bahamóndez Honores
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,3 +27,6 @@ default[:slanger][:secret] = 'secret'
 
 # Upstart conf
 default[:slanger][:respawn] = true
+
+# Redis conf
+default[:slanger][:redis] = 'redis://127.0.0.1:6379/0'
