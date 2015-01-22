@@ -1,9 +1,9 @@
-maintainer       "Rafael Durán Castañeda"
-maintainer_email "rafadurancastaneda@gmail.com"
+maintainer       "Manuel Bahamóndez Honores"
+maintainer_email "manuel@bahamondez.com"
 license          "Apache 2.0"
 description      "Installs/Configures slanger"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          "0.0.5"
+version          "0.0.6"
 name             'slanger'
 supports         'ubuntu'
 

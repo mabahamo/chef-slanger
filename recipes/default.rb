@@ -30,15 +30,13 @@ end
 include_recipe "rbenv::default"
 include_recipe "rbenv::ruby_build"
 
-rbenv_ruby "2.1.5"
-
-rbenv_gem "bundler" do
+rbenv_ruby "2.1.5" do
   ruby_version "2.1.5"
+  global true
 end
 
-rbenv_gem "slanger" do
-  ruby_version "2.1.5"
-end
+rbenv_gem "bundler"
+rbenv_gem "slanger"
 
 # An upstart job for running slanger
 # Restart doesn't work properly so we stop the service and the service
