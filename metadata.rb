@@ -10,8 +10,8 @@ supports         'ubuntu'
 recipe  'slanger',
         'Installs and configures Slager as upstart job'
 
-# rvm cookbook comes from
-# https://github.com/fnichol/chef-rvm
+depends 'rbenv'
+
 
 attribute 'slanger/app_key',
   :display_name => 'application key',

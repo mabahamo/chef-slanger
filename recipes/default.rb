@@ -26,9 +26,16 @@ user 'slanger' do
   manage_home true
 end
 
+include_recipe "rbenv::default"
+include_recipe "rbenv::ruby_build"
+
+rbenv_ruby "2.1.5"
+
 gem_package "slanger" do
   action :install # see actions section below
 end
+
+
 
 # An upstart job for running slanger
 # Restart doesn't work properly so we stop the service and the service
@@ -44,8 +51,10 @@ template  '/etc/init/slanger.conf' do
   notifies :stop, 'service[slanger]', :immediately
 end
 
+
+
 service 'slanger' do
   provider  Chef::Provider::Service::Upstart
-  supports  :status => true, :restart => false
+  supports  :status => true, :restart => false, :start => true
   action    [ :enable, :start ]
 end
